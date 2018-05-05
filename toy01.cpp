@@ -39,9 +39,17 @@ int main(int argc, char *argv[]) {
     gVar->setLinkage(GlobalValue::CommonLinkage);
     gVar->setAlignment(4);
 
-    // emit a return statement to function foo
+    /* emit a simple arithmetic statement in entry basic block
+     * in particular, (1) multiply param "a" by constant 16 and
+     * (2) return the resulting value
+     */
     Builder.SetInsertPoint(entry);
-    Builder.CreateRet(Builder.getInt32(0));
+    Value *Arg1 = fooFunc->arg_begin();
+    Value *Constant = Builder.getInt32(16);
+    Value *Val = Builder.CreateMul(Arg1, Constant, "tempMul");
+    // emit a return statement to function foo
+
+    Builder.CreateRet(Val);
     ModuleOb->dump();
 
 
