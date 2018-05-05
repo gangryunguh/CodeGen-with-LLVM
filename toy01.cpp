@@ -20,6 +20,12 @@ int main(int argc, char *argv[]) {
     Builder.SetInsertPoint(entry);
     verifyFunction(*fooFunc);
 
+    // emit a global variable i32 "x"
+    ModuleOb->getOrInsertGlobal("x", Builder.getInt32Ty());
+    GlobalVariable *gVar = ModuleOb->getNamedGlobal("x");
+    gVar->setLinkage(GlobalValue::CommonLinkage);
+    gVar->setAlignment(4);
+
     ModuleOb->dump();
     return 0;
 }
