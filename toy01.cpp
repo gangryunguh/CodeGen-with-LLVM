@@ -17,7 +17,6 @@ int main(int argc, char *argv[]) {
 
     // adding a block to a function "foo"
     BasicBlock *entry = BasicBlock::Create(Context,"entry",fooFunc);
-    Builder.SetInsertPoint(entry);
     verifyFunction(*fooFunc);
 
     // emit a global variable i32 "x"
@@ -26,6 +25,9 @@ int main(int argc, char *argv[]) {
     gVar->setLinkage(GlobalValue::CommonLinkage);
     gVar->setAlignment(4);
 
+    // emit a return statement to function foo
+    Builder.SetInsertPoint(entry);
+    Builder.CreateRet(Builder.getInt32(0));
     ModuleOb->dump();
     return 0;
 }
