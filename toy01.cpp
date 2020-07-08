@@ -3,10 +3,11 @@
 #include "llvm/IR/LLVMContext.h"
 #include "llvm/IR/Module.h"
 #include <vector>
+#include <iostream>
 
 using namespace llvm;
 static LLVMContext Context;
-static Module *ModuleOb = new Module("My compiler",Context);
+static Module *ModuleOb = new Module("Toy01",Context);
 
 int main(int argc, char *argv[]) {
     static IRBuilder<> Builder = IRBuilder<>(Context);

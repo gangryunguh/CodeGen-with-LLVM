@@ -3,7 +3,9 @@ project(Toy01)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set (CMAKE_PREFIX_PATH "/Users/uh/LLVM/6.0/llvm/cmake-build-debug")
+#set (CMAKE_PREFIX_PATH "/Users/uh/LLVM/6.0/llvm/cmake-build-debug")
+set (CMAKE_PREFIX_PATH "/Users/uh/LLVM/llvm-project-10.0.0/llvm/cmake-build-debug")
+#set (CMAKE_PREFIX_PATH "/Users/uh/hare/llvm/cmake-build-debug")
 find_package(LLVM REQUIRED CONFIG)
 
 # The version number
