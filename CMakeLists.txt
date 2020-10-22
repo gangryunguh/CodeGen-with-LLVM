@@ -1,13 +1,9 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.10)
 project(Toy01)
 
 set(CMAKE_CXX_STANDARD 14)
 
-#set (CMAKE_PREFIX_PATH "/Users/uh/LLVM/6.0/llvm/cmake-build-debug")
-#set (CMAKE_PREFIX_PATH "/Users/uh/LLVM/llvm-project-10.0.0/llvm/cmake-build-debug")
-#set (CMAKE_PREFIX_PATH "/Users/uh/LLVM/llvm-project-10.0.0/llvm")
-set (CMAKE_PREFIX_PATH "/Users/uh/llvms/install")
-#set (CMAKE_PREFIX_PATH "/Users/uh/hare/llvm/cmake-build-debug")
+set (CMAKE_PREFIX_PATH "/usr/local")
 find_package(LLVM REQUIRED CONFIG)
 
 # The version number
