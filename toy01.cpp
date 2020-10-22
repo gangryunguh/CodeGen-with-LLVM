@@ -35,11 +35,12 @@ int main(int argc, char *argv[]) {
     verifyFunction(*fooFunc);
 
     // emit a global variable i32 "x"
+   #if 0
     ModuleOb->getOrInsertGlobal("x", Builder.getInt32Ty());
     GlobalVariable *gVar = ModuleOb->getNamedGlobal("x");
     gVar->setLinkage(GlobalValue::CommonLinkage);
     gVar->setAlignment(4);
-
+   #endif
     /* emit a simple arithmetic statement in entry basic block
      * in particular, (1) multiply param "a" by constant 16 and
      * (2) return the resulting value
